@@ -8,7 +8,5 @@
 		<PackageReference Include="NServiceBus.RabbitMQ" Version="6.1.1" />
 		<PackageReference Include="NServiceBus.Newtonsoft.Json" Version="2.2.0" />
 		<PackageReference Include="NServiceBus.Persistence.Sql" Version="6.1.1" />
-		<PackageReference Include="Upmc.ServiceBus.Messages" Version="2.1.3" />
-		<PackageReference Include="Upmc.Services.Clients.EF6" Version="1.4.5" />
 	</ItemGroup>
 </Project>
