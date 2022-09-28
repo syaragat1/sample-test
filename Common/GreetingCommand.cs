@@ -2,7 +2,7 @@
 
 namespace Upmc.ServiceBus.Messages
 {
-    public class GreetingCommand : MessageBase, ICommand
+    public class GreetingCommand : ICommand
     {
         public string Greeting { get; set; }
     }

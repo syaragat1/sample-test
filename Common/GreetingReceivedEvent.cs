@@ -2,7 +2,7 @@
 
 namespace Upmc.ServiceBus.Messages
 {
-    public class GreetingReceivedEvent : MessageBase, IEvent
+    public class GreetingReceivedEvent : IEvent
     {
         public string Greeting { get; set; }
     }

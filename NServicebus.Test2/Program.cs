@@ -32,7 +32,7 @@ namespace NServicebus.Test2
             for (int i = 0; i < 10000; i++)
             {
                 Console.WriteLine(i);
-                await endpointInstance.Send(new GreetingCommand { Greeting = "Hello!", Header = new MessageHeader { ClientKey = 1 } });
+                await endpointInstance.Send(new GreetingCommand { Greeting = "Hello!" });
             }
         }
     }

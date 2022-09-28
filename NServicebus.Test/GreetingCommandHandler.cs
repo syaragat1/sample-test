@@ -23,26 +23,22 @@ namespace NServicebus.Test
             {
                 await context.Publish(new GreetingReceivedEvent()
                 {
-                    Greeting = sb.ToString(),
-                    Header = new MessageHeader { ClientKey = 1 }
+                    Greeting = sb.ToString()                   
                 });
 
                 await context.Publish(new Greeting2ReceivedEvent()
                 {
-                    Greeting = sb.ToString(),
-                    Header = new MessageHeader { ClientKey = 1 }
+                    Greeting = sb.ToString()
                 });
 
                 await context.Publish(new Greeting3ReceivedEvent()
                 {
-                    Greeting = sb.ToString(),
-                    Header = new MessageHeader { ClientKey = 1 }
+                    Greeting = sb.ToString()
                 });
 
                 await context.Publish(new Greeting4ReceivedEvent()
                 {
-                    Greeting = sb.ToString(),
-                    Header = new MessageHeader { ClientKey = 1 }
+                    Greeting = sb.ToString()
                 });
             }
         }
