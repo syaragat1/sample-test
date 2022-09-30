@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Common;
-using NServiceBus.Logging;
 
 namespace NServicebus.Test
 {
@@ -14,8 +13,8 @@ namespace NServicebus.Test
 
         static async Task MainAsync(string[] args)
         {
-            var defaultFactory = LogManager.Use<DefaultFactory>();
-            defaultFactory.Level(LogLevel.Debug);
+            //var defaultFactory = LogManager.Use<DefaultFactory>();
+            //defaultFactory.Level(LogLevel.Debug);
 
             var endpointName = Console.Title = "Upmc.Endpoint1";
             var endpointInstance = await EndpointConfigurator
