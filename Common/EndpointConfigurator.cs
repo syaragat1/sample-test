@@ -1,7 +1,6 @@
-﻿using NServiceBus;
-using System;
-using System.Data.SqlClient;
+﻿using System;
 using System.Threading.Tasks;
+using NServiceBus;
 
 namespace Common
 {
@@ -25,17 +24,6 @@ namespace Common
             transport.ConnectionString(ApplicationSettings.RmqConnectionString);
 
             return _endpointConfiguration;
-        }
-
-        public static EndpointConfiguration ConfigureSqlPersistence(this EndpointConfiguration endpointConfiguration, string endpointName)
-        {
-            var persistenceSettings = endpointConfiguration.UsePersistence<SqlPersistence>();
-            persistenceSettings.DisableInstaller();
-            persistenceSettings.SqlDialect<SqlDialect.MsSqlServer>();
-            persistenceSettings.TablePrefix($"{endpointName}.");
-            persistenceSettings.ConnectionBuilder(() => new SqlConnection(ApplicationSettings.SqlConnectionString));
-
-            return endpointConfiguration;
         }
 
         public static EndpointConfiguration ConfigureOutbox(this EndpointConfiguration endpointConfiguration, bool enableOutbox)

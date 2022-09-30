@@ -1,7 +1,7 @@
-﻿using Common;
-using NServiceBus.Logging;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using Common;
+using NServiceBus.Logging;
 
 namespace NServicebus.Test
 {
@@ -20,7 +20,6 @@ namespace NServicebus.Test
             var endpointName = Console.Title = "Upmc.Endpoint1";
             var endpointInstance = await EndpointConfigurator
                 .ConfigureEndpoint(endpointName)
-                .ConfigureSqlPersistence(endpointName)
                 .ConfigureOutbox(true)
                 .StartEndpoint();
 

@@ -1,8 +1,8 @@
-﻿using Common;
+﻿using System;
+using System.Threading.Tasks;
+using Common;
 using NServiceBus;
 using NServiceBus.Logging;
-using System;
-using System.Threading.Tasks;
 using Upmc.ServiceBus.Messages;
 
 namespace NServicebus.Test2
@@ -25,7 +25,6 @@ namespace NServicebus.Test2
             var endpointName = Console.Title = "Upmc.Endpoint2";
             var endpointInstance = await EndpointConfigurator.ConfigureEndpoint(endpointName)
                 .ConfigureCommandRoute("Upmc.Endpoint1", typeof(GreetingCommand))
-                .ConfigureSqlPersistence(endpointName)
                 //.ConfigureOutbox(true)
                 .StartEndpoint();
 
