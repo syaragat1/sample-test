@@ -9,6 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NServicebus.Test2", "NServi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{959F360D-5611-4B82-8145-5DD506044C7B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rabbitmq-docker-cluster", "rabbitmq-docker-cluster", "{AB123EFB-66E7-4F44-AD25-9628EF576208}"
+	ProjectSection(SolutionItems) = preProject
+		rabbitmq-docker-cluster\definitions.json = rabbitmq-docker-cluster\definitions.json
+		rabbitmq-docker-cluster\docker-compose.yml = rabbitmq-docker-cluster\docker-compose.yml
+		rabbitmq-docker-cluster\rabbitmq.config = rabbitmq-docker-cluster\rabbitmq.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

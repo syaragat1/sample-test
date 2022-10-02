@@ -8,7 +8,7 @@ using Upmc.ServiceBus.Messages;
 
 namespace Upmc.ServiceBus.Messages
 {
-    public class Greeting3ReceivedEvent : IEvent
+    public class Greeting3ReceivedEvent : MessageBase, IEvent
     {
         public string Greeting { get; set; }
     }
