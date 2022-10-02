@@ -11,7 +11,7 @@ namespace NServicebus.Test
     {
         public async Task Handle(GreetingCommand message, IMessageHandlerContext context)
         {
-            await Task.Delay(1000);
+            await Task.Delay(500);
 
             var sb = new StringBuilder();
             sb.AppendLine(message.Greeting);
@@ -26,28 +26,28 @@ namespace NServicebus.Test
                     Greeting = sb.ToString()                   
                 });
 
-                await Task.Delay(100);
+                //await Task.Delay(100);
 
                 await context.Publish(new Greeting2ReceivedEvent()
                 {
                     Greeting = sb.ToString()
                 });
 
-                await Task.Delay(100);
+                //await Task.Delay(100);
 
                 await context.Publish(new Greeting3ReceivedEvent()
                 {
                     Greeting = sb.ToString()
                 });
 
-                await Task.Delay(100);
+                //await Task.Delay(100);
 
                 await context.Publish(new Greeting4ReceivedEvent()
                 {
                     Greeting = sb.ToString()
                 });
 
-                await Task.Delay(100);
+                //await Task.Delay(100);
             }
         }
     }
