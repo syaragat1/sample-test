@@ -1,0 +1,1632 @@
+{
+	"rabbit_version": "3.10.7",
+	"rabbitmq_version": "3.10.7",
+	"product_name": "RabbitMQ",
+	"product_version": "3.10.7",
+	"users": [
+		{
+			"name": "guest",
+			"password_hash": "BAezfJB1tZJ5FPChJ1kxj4YnGKIyCpmP/VdfzeHhz7FvPBA8",
+			"hashing_algorithm": "rabbit_password_hashing_sha256",
+			"tags": [
+				"administrator"
+			],
+			"limits": {}
+		}
+	],
+	"vhosts": [
+		{
+			"name": "/"
+		}
+	],
+	"permissions": [
+		{
+			"user": "guest",
+			"vhost": "/",
+			"configure": ".*",
+			"write": ".*",
+			"read": ".*"
+		}
+	],
+	"topic_permissions": [],
+	"parameters": [],
+	"global_parameters": [
+		{
+			"name": "internal_cluster_id",
+			"value": "rabbitmq-cluster-id-x4fqY7_jO8puA8dVnA36dA"
+		}
+	],
+	"policies": [
+		{
+			"vhost": "/",
+			"name": "HA2",
+			"pattern": ".*",
+			"apply-to": "all",
+			"definition": {
+				"ha-mode": "exactly",
+				"ha-params": 2,
+				"ha-promote-on-failure": "when-synced",
+				"ha-promote-on-shutdown": "when-synced",
+				"ha-sync-mode": "automatic"
+			},
+			"priority": 0
+		}
+	],
+	"queues": [
+		{
+			"name": "nsb.delay-level-00",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-delivery",
+				"x-message-ttl": 1000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-01",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-00",
+				"x-message-ttl": 2000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-25",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-24",
+				"x-message-ttl": 33554432000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-20",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-19",
+				"x-message-ttl": 1048576000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "audit",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.Endpoint1",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.TestSub2",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-queue-type": "classic"
+			}
+		},
+		{
+			"name": "nsb.delay-level-06",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-05",
+				"x-message-ttl": 64000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-21",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-20",
+				"x-message-ttl": 2097152000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-11",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-10",
+				"x-message-ttl": 2048000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-26",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-25",
+				"x-message-ttl": 67108864000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-09",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-08",
+				"x-message-ttl": 512000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-23",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-22",
+				"x-message-ttl": 8388608000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "Upmc.TestSub1",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-queue-type": "classic"
+			}
+		},
+		{
+			"name": "Upmc.Endpoint2",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-27",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-26",
+				"x-message-ttl": 134217728000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-08",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-07",
+				"x-message-ttl": 256000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "error",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-15",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-14",
+				"x-message-ttl": 32768000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-17",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-16",
+				"x-message-ttl": 131072000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-02",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-01",
+				"x-message-ttl": 4000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-14",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-13",
+				"x-message-ttl": 16384000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-05",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-04",
+				"x-message-ttl": 32000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-12",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-11",
+				"x-message-ttl": 4096000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "Upmc.TestSub5",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-queue-type": "classic"
+			}
+		},
+		{
+			"name": "nsb.delay-level-10",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-09",
+				"x-message-ttl": 1024000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-03",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-02",
+				"x-message-ttl": 8000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-24",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-23",
+				"x-message-ttl": 16777216000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-19",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-18",
+				"x-message-ttl": 524288000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-07",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-06",
+				"x-message-ttl": 128000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "Upmc.TestSub4",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-queue-type": "classic"
+			}
+		},
+		{
+			"name": "nsb.delay-level-16",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-15",
+				"x-message-ttl": 65536000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-22",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-21",
+				"x-message-ttl": 4194304000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "Upmc.TestSub3",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-queue-type": "classic"
+			}
+		},
+		{
+			"name": "nsb.delay-level-04",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-03",
+				"x-message-ttl": 16000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-18",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-17",
+				"x-message-ttl": 262144000,
+				"x-queue-mode": "lazy"
+			}
+		},
+		{
+			"name": "nsb.delay-level-13",
+			"vhost": "/",
+			"durable": true,
+			"auto_delete": false,
+			"arguments": {
+				"x-dead-letter-exchange": "nsb.delay-level-12",
+				"x-message-ttl": 8192000,
+				"x-queue-mode": "lazy"
+			}
+		}
+	],
+	"exchanges": [
+		{
+			"name": "nsb.delay-level-10",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-24",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-25",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-01",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.ServiceBus.Messages:Greeting2ReceivedEvent",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-11",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.TestSub2",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.Endpoint2",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-26",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "NServiceBus:IMessage",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-21",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.TestSub3",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.ServiceBus.Messages:Greeting4ReceivedEvent",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-12",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-18",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-20",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-05",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.TestSub1",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-13",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.ServiceBus.Messages:MessageBase",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-04",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-23",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-27",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-19",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.Endpoint1",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-22",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-17",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-14",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "audit",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.TestSub5",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.ServiceBus.Messages:Greeting3ReceivedEvent",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-00",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "System:Object",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-03",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-09",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-16",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "NServiceBus:IEvent",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-07",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-15",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-08",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.ServiceBus.Messages:GreetingReceivedEvent",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-06",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "Upmc.TestSub4",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "error",
+			"vhost": "/",
+			"type": "fanout",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-delivery",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		},
+		{
+			"name": "nsb.delay-level-02",
+			"vhost": "/",
+			"type": "topic",
+			"durable": true,
+			"auto_delete": false,
+			"internal": false,
+			"arguments": {}
+		}
+	],
+	"bindings": [
+		{
+			"source": "Upmc.Endpoint1",
+			"vhost": "/",
+			"destination": "Upmc.Endpoint1",
+			"destination_type": "queue",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.Endpoint2",
+			"vhost": "/",
+			"destination": "Upmc.Endpoint2",
+			"destination_type": "queue",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting2ReceivedEvent",
+			"vhost": "/",
+			"destination": "NServiceBus:IEvent",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting2ReceivedEvent",
+			"vhost": "/",
+			"destination": "NServiceBus:IMessage",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting2ReceivedEvent",
+			"vhost": "/",
+			"destination": "System:Object",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting2ReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.Endpoint2",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting2ReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.ServiceBus.Messages:MessageBase",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting2ReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.TestSub1",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting2ReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.TestSub2",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting2ReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.TestSub3",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting2ReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.TestSub4",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting2ReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.TestSub5",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting3ReceivedEvent",
+			"vhost": "/",
+			"destination": "NServiceBus:IEvent",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting3ReceivedEvent",
+			"vhost": "/",
+			"destination": "NServiceBus:IMessage",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting3ReceivedEvent",
+			"vhost": "/",
+			"destination": "System:Object",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting3ReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.Endpoint2",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting3ReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.ServiceBus.Messages:MessageBase",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting4ReceivedEvent",
+			"vhost": "/",
+			"destination": "NServiceBus:IEvent",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting4ReceivedEvent",
+			"vhost": "/",
+			"destination": "NServiceBus:IMessage",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting4ReceivedEvent",
+			"vhost": "/",
+			"destination": "System:Object",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:Greeting4ReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.ServiceBus.Messages:MessageBase",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:GreetingReceivedEvent",
+			"vhost": "/",
+			"destination": "NServiceBus:IEvent",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:GreetingReceivedEvent",
+			"vhost": "/",
+			"destination": "NServiceBus:IMessage",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:GreetingReceivedEvent",
+			"vhost": "/",
+			"destination": "System:Object",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:GreetingReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.Endpoint2",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:GreetingReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.ServiceBus.Messages:MessageBase",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:GreetingReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.TestSub1",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:GreetingReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.TestSub2",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:GreetingReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.TestSub3",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:GreetingReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.TestSub4",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:GreetingReceivedEvent",
+			"vhost": "/",
+			"destination": "Upmc.TestSub5",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.ServiceBus.Messages:MessageBase",
+			"vhost": "/",
+			"destination": "System:Object",
+			"destination_type": "exchange",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.TestSub1",
+			"vhost": "/",
+			"destination": "Upmc.TestSub1",
+			"destination_type": "queue",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.TestSub2",
+			"vhost": "/",
+			"destination": "Upmc.TestSub2",
+			"destination_type": "queue",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.TestSub3",
+			"vhost": "/",
+			"destination": "Upmc.TestSub3",
+			"destination_type": "queue",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.TestSub4",
+			"vhost": "/",
+			"destination": "Upmc.TestSub4",
+			"destination_type": "queue",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "Upmc.TestSub5",
+			"vhost": "/",
+			"destination": "Upmc.TestSub5",
+			"destination_type": "queue",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "audit",
+			"vhost": "/",
+			"destination": "audit",
+			"destination_type": "queue",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "error",
+			"vhost": "/",
+			"destination": "error",
+			"destination_type": "queue",
+			"routing_key": "",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-delivery",
+			"vhost": "/",
+			"destination": "Upmc.Endpoint1",
+			"destination_type": "exchange",
+			"routing_key": "#.Upmc.Endpoint1",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-delivery",
+			"vhost": "/",
+			"destination": "Upmc.Endpoint2",
+			"destination_type": "exchange",
+			"routing_key": "#.Upmc.Endpoint2",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-00",
+			"vhost": "/",
+			"destination": "nsb.delay-delivery",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-00",
+			"vhost": "/",
+			"destination": "nsb.delay-level-00",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-01",
+			"vhost": "/",
+			"destination": "nsb.delay-level-00",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-01",
+			"vhost": "/",
+			"destination": "nsb.delay-level-01",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-02",
+			"vhost": "/",
+			"destination": "nsb.delay-level-01",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-02",
+			"vhost": "/",
+			"destination": "nsb.delay-level-02",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-03",
+			"vhost": "/",
+			"destination": "nsb.delay-level-02",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-03",
+			"vhost": "/",
+			"destination": "nsb.delay-level-03",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-04",
+			"vhost": "/",
+			"destination": "nsb.delay-level-03",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-04",
+			"vhost": "/",
+			"destination": "nsb.delay-level-04",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-05",
+			"vhost": "/",
+			"destination": "nsb.delay-level-04",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-05",
+			"vhost": "/",
+			"destination": "nsb.delay-level-05",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-06",
+			"vhost": "/",
+			"destination": "nsb.delay-level-05",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-06",
+			"vhost": "/",
+			"destination": "nsb.delay-level-06",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-07",
+			"vhost": "/",
+			"destination": "nsb.delay-level-06",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-07",
+			"vhost": "/",
+			"destination": "nsb.delay-level-07",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-08",
+			"vhost": "/",
+			"destination": "nsb.delay-level-07",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-08",
+			"vhost": "/",
+			"destination": "nsb.delay-level-08",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-09",
+			"vhost": "/",
+			"destination": "nsb.delay-level-08",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-09",
+			"vhost": "/",
+			"destination": "nsb.delay-level-09",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-10",
+			"vhost": "/",
+			"destination": "nsb.delay-level-09",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-10",
+			"vhost": "/",
+			"destination": "nsb.delay-level-10",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-11",
+			"vhost": "/",
+			"destination": "nsb.delay-level-10",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-11",
+			"vhost": "/",
+			"destination": "nsb.delay-level-11",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-12",
+			"vhost": "/",
+			"destination": "nsb.delay-level-11",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-12",
+			"vhost": "/",
+			"destination": "nsb.delay-level-12",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-13",
+			"vhost": "/",
+			"destination": "nsb.delay-level-12",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-13",
+			"vhost": "/",
+			"destination": "nsb.delay-level-13",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-14",
+			"vhost": "/",
+			"destination": "nsb.delay-level-13",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-14",
+			"vhost": "/",
+			"destination": "nsb.delay-level-14",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-15",
+			"vhost": "/",
+			"destination": "nsb.delay-level-14",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-15",
+			"vhost": "/",
+			"destination": "nsb.delay-level-15",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-16",
+			"vhost": "/",
+			"destination": "nsb.delay-level-15",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-16",
+			"vhost": "/",
+			"destination": "nsb.delay-level-16",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-17",
+			"vhost": "/",
+			"destination": "nsb.delay-level-16",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-17",
+			"vhost": "/",
+			"destination": "nsb.delay-level-17",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-18",
+			"vhost": "/",
+			"destination": "nsb.delay-level-17",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-18",
+			"vhost": "/",
+			"destination": "nsb.delay-level-18",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-19",
+			"vhost": "/",
+			"destination": "nsb.delay-level-18",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-19",
+			"vhost": "/",
+			"destination": "nsb.delay-level-19",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-20",
+			"vhost": "/",
+			"destination": "nsb.delay-level-19",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-20",
+			"vhost": "/",
+			"destination": "nsb.delay-level-20",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-21",
+			"vhost": "/",
+			"destination": "nsb.delay-level-20",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-21",
+			"vhost": "/",
+			"destination": "nsb.delay-level-21",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-22",
+			"vhost": "/",
+			"destination": "nsb.delay-level-21",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-22",
+			"vhost": "/",
+			"destination": "nsb.delay-level-22",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-23",
+			"vhost": "/",
+			"destination": "nsb.delay-level-22",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-23",
+			"vhost": "/",
+			"destination": "nsb.delay-level-23",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-24",
+			"vhost": "/",
+			"destination": "nsb.delay-level-23",
+			"destination_type": "exchange",
+			"routing_key": "*.*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-24",
+			"vhost": "/",
+			"destination": "nsb.delay-level-24",
+			"destination_type": "queue",
+			"routing_key": "*.*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-25",
+			"vhost": "/",
+			"destination": "nsb.delay-level-24",
+			"destination_type": "exchange",
+			"routing_key": "*.*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-25",
+			"vhost": "/",
+			"destination": "nsb.delay-level-25",
+			"destination_type": "queue",
+			"routing_key": "*.*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-26",
+			"vhost": "/",
+			"destination": "nsb.delay-level-25",
+			"destination_type": "exchange",
+			"routing_key": "*.0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-26",
+			"vhost": "/",
+			"destination": "nsb.delay-level-26",
+			"destination_type": "queue",
+			"routing_key": "*.1.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-27",
+			"vhost": "/",
+			"destination": "nsb.delay-level-26",
+			"destination_type": "exchange",
+			"routing_key": "0.#",
+			"arguments": {}
+		},
+		{
+			"source": "nsb.delay-level-27",
+			"vhost": "/",
+			"destination": "nsb.delay-level-27",
+			"destination_type": "queue",
+			"routing_key": "1.#",
+			"arguments": {}
+		}
+	]
+}

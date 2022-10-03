@@ -21,7 +21,7 @@ namespace NServicebus.Test
             var endpointInstance = await EndpointConfigurator
                 .ConfigureEndpoint(endpointName)
                 .ConfigureSqlPersistence(endpointName)
-                .ConfigureOutbox(true)
+                .ConfigureOutbox(false)
                 .StartEndpoint();
 
             Console.WriteLine("Press ENTER to stop service ...");

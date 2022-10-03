@@ -1,4 +1,5 @@
 ﻿using NServiceBus;
+using NServiceBus.Configuration.AdvancedExtensibility;
 using System;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
@@ -30,7 +31,7 @@ namespace Common
         public static EndpointConfiguration ConfigureSqlPersistence(this EndpointConfiguration endpointConfiguration, string endpointName)
         {
             var persistenceSettings = endpointConfiguration.UsePersistence<SqlPersistence>();
-            persistenceSettings.DisableInstaller();
+            //persistenceSettings.DisableInstaller();
             persistenceSettings.SqlDialect<SqlDialect.MsSqlServer>();
             persistenceSettings.TablePrefix($"{endpointName}.");
             persistenceSettings.ConnectionBuilder(() => new SqlConnection(ApplicationSettings.SqlConnectionString));
