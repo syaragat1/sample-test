@@ -18,20 +18,20 @@ namespace NServicebus.Test
             sb.AppendLine(File.ReadAllText("logs/sample.txt"));
 
             //Console.WriteLine($"Received Greeting: {message.Greeting}");
-            var randomNumber = 4;// RandomNumberGenerator.Next;
+            var randomNumber = 2;// RandomNumberGenerator.Next;
             for (int i = 1; i <= randomNumber; i++)
             {
                 await context.Publish(new GreetingReceivedEvent()
                 {
-                    Greeting = sb.ToString()                   
+                    Greeting = sb.ToString()
                 });
 
                 //await Task.Delay(100);
 
-                await context.Publish(new Greeting2ReceivedEvent()
-                {
-                    Greeting = sb.ToString()
-                });
+                //await context.Publish(new Greeting2ReceivedEvent()
+                //{
+                //    Greeting = sb.ToString()
+                //});
 
                 //await Task.Delay(100);
 
@@ -42,10 +42,10 @@ namespace NServicebus.Test
 
                 //await Task.Delay(100);
 
-                await context.Publish(new Greeting4ReceivedEvent()
-                {
-                    Greeting = sb.ToString()
-                });
+                //await context.Publish(new Greeting4ReceivedEvent()
+                //{
+                //    Greeting = sb.ToString()
+                //});
 
                 //await Task.Delay(100);
             }
